@@ -1,0 +1,113 @@
+.tabs {
+    position: relative;
+    .tab-header-wrap {
+        // display: flex;
+        padding: 0 1px;
+        @media (min-width: 769px) {
+            display: flex !important;
+        }
+    }
+    .tab-header {
+        padding: 8px 20px;
+        font-weight: bold;
+        transition: color 0.2s linear;
+        &.active {
+            box-shadow: 0 1px 0 #fff, 0 0 0 1px $c-border;
+        }
+        &:not(.active) {
+            cursor: pointer;
+            &:hover {
+                color: $c-highlight;
+            }
+        }
+    }
+    .tab-content-wrap {
+        border: 1px solid $c-border;
+    }
+    .tab-content {
+        padding: 30px 20px;
+        &:not(.active) {
+            display: none;
+        }
+        &:nth-child(n + 3) {
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+        &__img {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            .img-wrap {
+                position: absolute;
+                &__src {
+                    max-width: 900px;
+                    cursor: move;
+                }
+            }
+        }
+        &__zoom {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: none;
+            img {
+                max-width: initial;
+                position: absolute;
+                cursor: crosshair;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+    }
+    .tabs-btn {
+        display: none;
+        position: relative;
+        padding: 8px 20px;
+        &::before {
+            content: '';
+            width: 17px;
+            height: 1px;
+            background-color: #000;
+            box-shadow: 0 6px 0 0 #000, 0 12px 0 0 #000;
+            position: absolute;
+            right: 20px;
+            top: 12px
+        }
+    }
+    @media (max-width: $tablet-min) {
+        .tabs-btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid $c-border;
+            text-decoration: none;
+            color: $c-text-main;
+        }
+        .tab-header-wrap {
+            min-height: 20px;
+            padding: 19px;
+            width: 100%;
+            position: absolute;
+            top: 40px;
+            flex-direction: column;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            z-index: 22;
+            display: none;
+        }
+        .tab-header.active {
+            box-shadow: none;
+        }
+    }
+}
